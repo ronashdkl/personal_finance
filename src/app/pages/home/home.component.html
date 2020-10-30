@@ -1,0 +1,60 @@
+<main>
+  <div class="display">
+    <div class="balance">${{walletService.balance()}}</div>
+    <div class="status">
+      <div class="income">+ ${{walletService.income}} <span>Income</span></div>
+
+   <div class="chart">
+    <canvas #chart  role="img"></canvas>
+   </div>
+
+      <div class="expense">- ${{walletService.expense}} <span>Expense</span></div>
+    </div>
+  </div>
+
+  <div class="wraper">
+    <div class="page-title">
+      <div>Dashboard</div>
+      <i class="add-icon" (click)="displayForm = !displayForm"> </i>
+    </div>
+
+    <ul class="navs">
+      <li (click)="visible='income'" [class.active]="visible=='income'">Income</li>
+      <li (click)="visible='expanse'" [class.active]="visible=='expanse'">Expense</li>
+      <li  (click)="visible='all'"[class.active]="visible=='all'">All</li>
+    </ul>
+
+    <div class="input-form" *ngIf="displayForm">
+      <div class="select">
+        <select name="type" id="cash-type" class="input">
+          <option value="income">Income</option>
+          <option value="expense">Expense</option>
+        </select>
+      </div>
+      <div class="textbox">
+        <input type="text" placeholder="Remark" class="input cash-remark" />
+      </div>
+      <div class="textbox">
+        <input type="number" class="input cash-amount" placeholder="Amount" />
+      </div>
+
+      <div class="submit">Add</div>
+    </div>
+
+
+    <div class="tabs">
+      <div [class.income]="item.type==='income'" [class.expense]="item.type==='expense'" class="tab income" *ngFor="let item of walletService.transaction; let i = index">
+        <div class="amount">${{item.amount}}</div>
+        <div class="title">{{item.title}}</div>
+        <div class="actions">
+          <a class="update-link"></a>
+          <a class="delete-link" (click)="walletService.remove(i)"></a>
+        </div>
+      </div>
+
+    </div>
+
+
+
+  </div>
+</main>

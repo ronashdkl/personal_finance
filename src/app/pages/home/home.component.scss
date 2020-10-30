@@ -1,0 +1,214 @@
+main {
+  width: 50%;
+  gap: 50px;
+  justify-content: center;
+  box-shadow: inset 0 0 5px 4px #00000052;
+  margin: 30px auto;
+  border-radius: 30px;
+  background: rgb(125,91,186);
+  background: linear-gradient(158deg, rgba(125,91,186,1) 0%, rgba(103,58,183,1) 45%, rgba(125,91,186,1) 100%);
+
+  .display {
+    color: #fff;
+    margin-bottom: 30px;
+    padding: 40px 20px;
+    white-space: pre-wrap;
+    .balance {
+      font-size: 50px;
+      text-align: center;
+    }
+    .status {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 30px;
+        .chart{
+
+    border-radius:0;
+  background: none;
+        }
+      div {
+        background: #00000052;
+        padding: 10px;
+        border-radius: 20px;
+
+        &.income {
+          color: #4caf50;
+        }
+        &.expense {
+          color: #f44336;
+        }
+        span{
+          font-size: 14px;
+        }
+      }
+    }
+  }
+  .wraper {
+    background: #dcdcdc;
+    padding: 20px;
+    border-radius: 30px 30px 0 0;
+    border: 1px solid #c3c3c3;
+    box-shadow: 0px 20px 20px #00000021;
+    .page-title {
+      font-size: 20px;
+      font-weight: 900;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .add-icon{
+        background: url(/assets/add-icon.png) no-repeat;
+        height: 22px;
+        background-size: contain;
+        width: 22px;
+        cursor: pointer;
+        transform: scale(1.5);
+      }
+    }
+    .navs{
+      display: flex;
+      justify-content: space-around;
+      list-style: none;
+      padding: 0px;
+      margin: 30px 0px;
+      background: white;
+      font-size: 20px;
+      box-shadow: inset 0px 0 12px 0px #0000004a;
+      border-radius: 0 0 15px 15px;
+      border-top: 5px solid #673bb7;
+      height: 55px;
+      li{
+        padding: 15px;
+        &:hover, &:active, &.active{
+          border-bottom: 2px solid;
+          color: #FFC107;
+          cursor: pointer;
+          background: #673bb7;
+        }
+      }
+
+    }
+    .tabs{
+      margin: 30px 0;
+      padding: 0 10px;
+      .tab{
+        border-bottom: 1px dashed #673bb7;
+        display: flex;
+        justify-content: space-between;
+        padding: 20px 0;
+        align-items: center;
+
+        &.income{
+
+          .amount{
+            color: #4caf50;
+            &:before{
+            content: "+ ";
+            }
+          }
+        }
+        &.expense{
+
+          .amount{
+            color: #f44336;
+            &:before{
+
+              content: "- ";
+
+            }
+          }
+        }
+
+        .actions{
+          display: flex;
+          gap: 5px;
+          flex-direction: column;
+          .update-link{
+            background: url(/assets/update-icon.png) no-repeat;
+            background-size: contain;
+            height: 18px;
+            position: relative;
+            left: 10px;
+            &:hover{
+              transform: rotate(10deg);
+              cursor: pointer;
+            }
+          }
+          .delete-link{
+            background: url(/assets/trash-icon.png) no-repeat;
+            background-size: 53px;
+            height: 22px;
+            width: 33px;
+            background-position: left 10px top;
+            &:hover{
+              background-position: right 5px top;
+              cursor: pointer;
+            }
+          }
+        }
+      }
+    }
+    .input-form{
+      display: flex;
+    justify-content: space-around;
+    align-items: center;
+    .input{
+      border: none;
+      padding: 5px 10px;
+      box-shadow: inset 0 0 2px #000000a8;
+    }
+    .cash-amount{
+      width: 62px;
+    }
+    .submit{
+      border: 1px solid;
+    border-radius: 10px;
+    padding: 5px 10px;
+    text-align: center;
+    &:hover{
+      background-color: #673ab7;
+      color: #fff;
+      cursor: pointer;
+    }
+    }
+    }
+  }
+}
+
+
+@media (max-width: 767px) {
+  main {
+   width: 100vw;
+   margin: 0;
+   border-radius: 0;
+   .display{
+    font-size: 15px;
+    margin-bottom: 0px;
+     .status{
+      flex-direction: column;
+    gap: 25px;
+     }
+   }
+   .wraper{
+     .input-form{
+      gap: 14px;
+      display: grid;
+      grid-template-columns: 1fr 0fr;
+     }
+   }
+  }
+}
+
+
+@media only screen and (min-width: 768px) and (max-width: 1024px){
+  main {
+    width: 80%;
+  //  .wraper{
+  //    .input-form{
+  //     gap: 14px;
+  //     display: grid;
+  //     grid-template-columns: 1fr 0fr;
+  //    }
+  //  }
+  }
+}
